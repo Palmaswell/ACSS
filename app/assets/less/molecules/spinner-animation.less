@@ -1,0 +1,63 @@
+// The Spinner Animation is a molecule.
+// It is composed out of several colors and layer effects (atoms).
+
+
+@keyframes @a-first-animation-name{
+    0%{
+        transform: rotateZ(0deg) scaleX(0) scaleY(0) translateZ(0);
+        box-shadow: extract(@m-color-animation-list, 1),
+                    extract(@m-color-animation-list, 2),
+                    extract(@m-color-animation-list, 3),
+                    extract(@m-color-animation-list, 4);
+    }
+
+    // Hidden
+    85%,
+    100%{
+        transform: rotateZ((@a-full-rotation * 12deg)) scaleX(2) scaleY(4) translateZ(0);
+        box-shadow: extract(@m-color-animation-list-transparent, 1),
+                    extract(@m-color-animation-list-transparent, 2),
+                    extract(@m-color-animation-list-transparent, 3),
+                    extract(@m-color-animation-list-transparent, 4);
+    }
+}
+
+@keyframes @a-second-animation-name{
+    0%{
+        transform: scaleX(0) scaleY(0);
+        box-shadow: extract(@m-color-animation-list, 1),
+                    extract(@m-color-animation-list, 2),
+                    extract(@m-color-animation-list, 3),
+                    extract(@m-color-animation-list, 4);
+    }
+
+    // Hidden
+    75%,
+    100%{
+        transform: scaleX(2) scaleY(4);
+        box-shadow: extract(@m-color-animation-list-transparent, 1),
+                    extract(@m-color-animation-list-transparent, 2),
+                    extract(@m-color-animation-list-transparent, 3),
+                    extract(@m-color-animation-list-transparent, 4);
+    }
+}
+
+@keyframes @a-third-animation-name{
+    0%{
+        transform: scaleX(0) scaleY(0);
+        box-shadow: extract(@m-color-animation-list, 1),
+                    extract(@m-color-animation-list, 2),
+                    extract(@m-color-animation-list, 3),
+                    extract(@m-color-animation-list, 4);
+    }
+
+    // Hidden
+    65%,
+    100%{
+        transform: scaleX(2) scaleY(4);
+        box-shadow: extract(@m-color-animation-list-transparent, 1),
+                    extract(@m-color-animation-list-transparent, 2),
+                    extract(@m-color-animation-list-transparent, 3),
+                    extract(@m-color-animation-list-transparent, 4);
+    }
+}

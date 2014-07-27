@@ -1,0 +1,40 @@
+// The Spinner composition is a molecule.
+// It is composed out of several colors and layers (atoms).
+
+// Dependencies
+// @import "spinner-animation";
+@import "../vars/colors";
+@import "../vars/vars";
+
+.m-spinner{
+    position: relative;
+    height: 10rem;
+    width: 10rem;
+    margin: auto;
+    animation-name: @a-first-animation-name;
+
+    &,
+    &:before,
+    &:after{
+        border-radius: 100%;
+        animation-duration: @a-animation-duration;
+        animation-iteration-count: @a-animation-iteration;
+        animation-timing-function: @a-animation-timing;
+    }
+
+    &:before{
+        animation-name: @a-second-animation-name;
+    }
+
+    &:after{
+        animation-name: @a-third-animation-name;
+    }
+
+    &:before,
+    &:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
