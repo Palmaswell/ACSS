@@ -17,17 +17,25 @@
 // Headlines Colors
 @a-headline-main-color    : @a-hex-brown;
 
-// Base RGB Colors
-@a-rgb-brown              : 238, 233, 215;
-@a-rgba-gray-blue         : rgba(101, 137, 169, 0.5);
-@a-rgb-yellow             : 254, 235, 161;
-@a-rgb-light-orange       : 248, 187, 106;
-@a-rgb-orange             : 252, 154, 90;
-@a-rgb-dark-orange        : 250, 119, 71;
-@a-rgb-red                : 182, 70, 51;
+// RGBA Colors For Animations
+@a-rgba-gray-blue         : rgba(101, 137, 169, 0.8);
+@a-rgba-yellow            : rgba(254, 235, 161, 0.8);
+@a-rgba-orange            : rgba(252, 154, 90, 0.8);
+@a-rgba-red                : rgba(182, 70, 51, 0.8);
+
+@a-rgba-gray-blue-transparent: rgba(101, 137, 169, 0.2);
+@a-rgba-yellow-transparent: rgba(254, 235, 161, 0.2);
+@a-rgba-orange-transparent: rgba(252, 154, 90, 0.2);
+@a-rgba-red-transparent    : rgba(182, 70, 51, 0.2);
 
 // Spinner Animation Colors
 @a-color-opacity          : 0.5;
-@a-spinner-main-color     : e("@{a-rgba-gray-blue}");
-@a-spinner-second-color   : @a-rgb-orange;
-@a-spinner-third-color    : @a-rgb-red;
+@a-spinner-main-color     : @a-rgba-gray-blue;
+@a-spinner-second-color   : @a-rgba-yellow;
+@a-spinner-third-color    : @a-rgba-orange;
+@a-spinner-fourth-color   : @a-rgba-red;
+
+@a-spinner-main-color-transparent: @a-rgba-gray-blue-transparent;
+@a-spinner-second-color-transparent: @a-rgba-yellow-transparent;
+@a-spinner-third-color-transparent: @a-rgba-orange-transparent;
+@a-spinner-fourth-color-transparent: @a-rgba-red-transparent;
