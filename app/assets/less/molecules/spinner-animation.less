@@ -2,9 +2,38 @@
 // It is composed out of several colors and layer effects (atoms).
 
 
+// Dependencies
+@import "spinner";
+@import "../vars/colors";
+@import "../vars/vars";
+@import "../mixins/mixins";
+
+// Animation V.1
+
+// @keyframes @a-first-animation-name{
+//     0%{
+//         transform: rotateZ(0deg) scaleX(0) scaleY(0) translateZ(0);
+//         box-shadow: extract(@m-color-animation-list, 1),
+//                     extract(@m-color-animation-list, 2),
+//                     extract(@m-color-animation-list, 3),
+//                     extract(@m-color-animation-list, 4);
+//     }
+
+//     85%,
+//     100%{
+//         transform: rotateZ((@a-full-rotation * 12deg)) scaleX(2) scaleY(4) translateZ(0);
+//         box-shadow: extract(@m-color-animation-list-transparent, 1),
+//                     extract(@m-color-animation-list-transparent, 2),
+//                     extract(@m-color-animation-list-transparent, 3),
+//                     extract(@m-color-animation-list-transparent, 4);
+//     }
+// }
+
+// Animation V.2
+
 @keyframes @a-first-animation-name{
     0%{
-        transform: rotateZ(0deg) scaleX(0) scaleY(0) translateZ(0);
+        transform: rotate(0deg)rotateZ(0deg);
         box-shadow: extract(@m-color-animation-list, 1),
                     extract(@m-color-animation-list, 2),
                     extract(@m-color-animation-list, 3),
@@ -13,7 +42,7 @@
 
     85%,
     100%{
-        transform: rotateZ((@a-full-rotation * 12deg)) scaleX(2) scaleY(4) translateZ(0);
+        transform: rotate(0deg) rotateZ((@a-full-rotation * 10deg));
         box-shadow: extract(@m-color-animation-list-transparent, 1),
                     extract(@m-color-animation-list-transparent, 2),
                     extract(@m-color-animation-list-transparent, 3),
@@ -23,7 +52,7 @@
 
 @keyframes @a-second-animation-name{
     0%{
-        transform: scaleX(0) scaleY(0);
+        transform:   rotateX(0deg);
         box-shadow: extract(@m-color-animation-list, 1),
                     extract(@m-color-animation-list, 2),
                     extract(@m-color-animation-list, 3),
@@ -32,7 +61,7 @@
 
     75%,
     100%{
-        transform: scaleX(2) scaleY(4);
+        transform:   rotateX((@a-full-rotation * 10deg));
         box-shadow: extract(@m-color-animation-list-transparent, 1),
                     extract(@m-color-animation-list-transparent, 2),
                     extract(@m-color-animation-list-transparent, 3),
@@ -42,7 +71,7 @@
 
 @keyframes @a-third-animation-name{
     0%{
-        transform: scaleX(0) scaleY(0);
+        transform:  rotateZ(0deg);
         box-shadow: extract(@m-color-animation-list, 1),
                     extract(@m-color-animation-list, 2),
                     extract(@m-color-animation-list, 3),
@@ -51,7 +80,7 @@
 
     65%,
     100%{
-        transform: scaleX(2) scaleY(4);
+        transform:  rotateZ((@a-full-rotation * 10deg));
         box-shadow: extract(@m-color-animation-list-transparent, 1),
                     extract(@m-color-animation-list-transparent, 2),
                     extract(@m-color-animation-list-transparent, 3),
