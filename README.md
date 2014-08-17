@@ -34,7 +34,7 @@ At this very moment we are experiencing the great renaissance of front-end style
 
 We write low impact CSS, ideally, with a zero amount of unused style declarations. In order to reduce our cascading footprint, we need to keep the CSS specificity low at all times. The inception rule: don´t go more than 2 levels deep. There are some exceptions to the 2 level inception rule. The HTML elements `<ol>, <ul>, <dl> and <table> ` have a rigid structure by nature, when used correctly they will remain unchanged for the rest of their existence. When we create a main navigation we are writing markup looking like the following example:
 
-´´´html
+```html
 <nav>
 	<ul>
 		<li><a href="/">nav link one</a></li>
@@ -42,7 +42,7 @@ We write low impact CSS, ideally, with a zero amount of unused style declaration
 		<li><a href="/site-three">nav link three</a></li>
 	</ul>
 </nav>
-´´´
+```
 
 In this particular case we can break our CSS inception rule. We can nest no more than four levels deep and take advantage of this HTML structure for the sake of markup aesthetic. The above example will be rarely changed once used and don´t require the use of our mandatory classes, which take us to the next point.
 
@@ -76,13 +76,13 @@ Atomic CSS Architecture is made out of three elements:
 ### Atoms
 Atoms are in chemistry the basic units of matter and in **Atomic CSS Architecture** atoms are the basic composition properties of our user interface. Specifically they refer to individual HTML elements, font stacks, icons and color patterns. Atoms are tagged with the class prefix "a-".  Some examples of atoms are:
 
-´´´html
+```html
 <a href="/" class="a-navlink">a navigation link is an atom</a>
         
 <button class="a-button">a button is an atom</button>
         
 <h1 class="a-headline">a icon mixin is an atom too :)</h1>
-´´´
+```
 Usually ux designers, art directors and front-end developers create a static design conception of the application, once concept and design are done it´s time for us to make an implementation plan.
 To take the time to consider the ideal development approach is always time well invested. Take your time and make an architecture plan. The main role of this plan is the abstraction of visual elements and categorization of them into patterns and relationships. We call this process **atomic line filtering**. In physical sciences it is used to filter electromagnetic radiation and in **Atomic CSS Architecture** used to filter interface elements.
 
@@ -90,9 +90,9 @@ To take the time to consider the ideal development approach is always time well 
 
 Atomic line filtering is the process of scanning design files and filtering single elements (atoms) of the same lineage for categorization. A basic example: we scan design files and filter the buttons of the interface. We categorize our buttons based on thier lineage and reflect on their behavior and visual states. Now that we have a collection of all the buttons of the site, we remove all visual differences from the button and leave only the core commonalities that will generate our global atom style, in this case **.a-button** is our global definition of the parent button style.
 
-´´´html
+```html
 <button class="a-button f-edit">Edit Me!</button>
-´´´
+```
 
 Atoms have a conceptual purpose, this conceptual purpose should be reflected on the class name of choice. Class naming should never be based on visual properties or on content relationships. The class of choice should describe the element purpose of existence.
 
@@ -125,14 +125,14 @@ Now that we have defined our global button, it´s time to get more specific and 
 
 Molecules are two or more atoms bond together. In **Atomic CSS Architecture** a molecule is an specific atom constitution that visually defines an interface component. Molecules are usually small and fulfill a single purpose or task. The idea is to create reusable small components that represent common patterns of our interface. Molecules take different forms and sizes, some examples are: a navigation bar, a login form, a media teaser and so on.
 
-´´´html
+```html
 <a href="/" class="m-teaser">
 	<figure>
 		<img class="a-teaser-image" src="dummy/src.jpg" alt="An image is an atom too" />
 		<figcaption class="a-text-copy">Some well crafted copytext</figcaption>
 	</figure> 
 </a>
-´´´
+```
 	
 The procedure remains the same, we filter the interface for molecules and abstract their core visual commonalities and use them in a global rule set. The wrapper or parent HTML element surrounding our atoms use the prefix ".m-" and defines our molecule. We only define the visual styles of the molecule composition and the visual interaction of its atoms. Avoid styling atoms at a molecular level, there is one exception discussed below.
 
@@ -146,18 +146,18 @@ Molecular fusion deals with the visual differentiation of the same kind of molec
 Going back to our example: during our interface deconstruction we recognized the existence of two types of teaser molecules and categorized them as *Primary* and *Secondary*, we recognized as well the existence of three different sizes for both of them. Now we have two meaningful teaser categories to differentiate our molecules:
 
 
-´´´html
+```html
 <a href="/" class="m-teaser f-primary-large">
 	<figure>
 		<img class="a-teaser-image f-hero" src="dummy/src.jpg" alt="An image is an atom too" />
 		<figcaption class="a-text-copy">Some well crafted copytext</figcaption>
 	</figure>
 </a>
-´´´
+```
 
 In this specific case, we styled all the visual commonalities of our primary teaser and extended them on the individual sizes. It´s recommended not to use more than three classes on the same HTML element in order to avoid verbose markup and promote markup aesthetic. Preprocessors like Less/Sass give us the possibility to make the development styles more portable and flexible. This is a minified example of our **"primary teaser large"** implementation in less:
 
-´´´less
+```less
 .primary-teaser{
 	// Some global declarations for our
 	// primary teaser category
@@ -168,7 +168,7 @@ In this specific case, we styled all the visual commonalities of our primary tea
 		
 	// Now the specific declarations related to the large size
 }
-´´´
+```
 
 
 #### Molecular Decay
@@ -185,7 +185,7 @@ It´s possible for molecules to live inside other molecules, most commonly when 
 Usually layout is a subjects that belongs entirely to the **Module** atomic element. In some special cases though, we have to take care of micro layouts, speak, the positioning of molecules living inside other molecules. Micro layouts are defined globally in our base file in our molecules folder. The class names should be portable and generic and are prefixed with ".m-", here is an example in less:
 
 
-´´´less
+```less
 // Micro layout style example for molecules 
 // layout living inside other molecules
 
@@ -196,7 +196,7 @@ Usually layout is a subjects that belongs entirely to the **Module** atomic elem
 	vertical-align: top;
     .a-regap();
 }
-´´´
+```
 
 #### Molecular Hosting & Coexistence
 
@@ -235,7 +235,7 @@ In **Atomic CSS Architecture** a module is a independent layout compostion of mo
 
 Each module should be designed to exist as a standalone element, that can be moved through out the application without breaking. A module consists entirely of layout style declarations and their only job is to control the visual composition of molecules (components). For example: the header or footer of a site is a module. The class naming of modules should be specific and diverges with the generic convention of our two previous elements. The class of the module should exacty describes the module itself. Here a basic example of a module composition in HTML:
 
-´´´html
+```html
 <section class="l-news-slider">
 	<h2 class="a-h1">News Slider Main Headline</h2>
 	<p class="a-text-copy">Some well crafted intro text...</p>
@@ -253,7 +253,7 @@ Each module should be designed to exist as a standalone element, that can be mov
 		</li>
 	</ul>
 </section>
-´´´
+```
 
 Modules are tagged with the prefix ".l-" and the prefix stands for layout. The module prefix is inherited by our parent HTML element and is a standalone element, speak an element with no other classes or properties (with the eception of javascript classes). The idea is that your module can be exported per copy/paste, can be deleted, replaced without causing any side effects. Modules are specific and can be thrown away at any time.
 
@@ -281,7 +281,7 @@ If you work with less/sass you probably create mixins for grid systems. Grid mix
 
 It´s recommend to write the denpendencies of each atom/molecule/module on your less/sass file to have a clear overview of their composition and relationships. There are no really performance disadvantages about this method and it promotes readability and maintainability.
 
-´´´less
+```less
 // MOLECULE X
 
 // Molecules are group of atoms bond together.
@@ -293,7 +293,7 @@ It´s recommend to write the denpendencies of each atom/molecule/module on your 
 @import "../vars/colors";
 @import "../vars/basic";
 @import "../mixins/mixins";
-´´´
+```
 
 
 This is an example file structure for a project using **Atomic CSS Architecture**:
