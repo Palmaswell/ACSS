@@ -209,7 +209,7 @@ You might encounter the situation where a molecule has two different visual task
 
 * Molecules are groups of atoms bonded together.
 
-* A molecule is an specific atom contitution and represent a small component.
+* A molecule is an specific atom constitution and represent a small component.
 
 * Molecules are usually defined globally and are portable.
 
@@ -229,7 +229,7 @@ We reached our last **Atomic CSS Architecture** element; **the module**. You mig
 
 We have now reached a point where we need to communicate our work with other peers (designers / pm´s /customers), they are all acquainted with the module terminology. Customers are not interested with atoms or molecules and they shouldn´t bother with them neither. These methods and terminologies are used strictly to provide front-end developers a set of tools to work with.
 
-In **Atomic CSS Architecture** a module is a independent layout compostion of molecules joined together to form portable interface unit. Portability, code reuse and code impact are at this stage crucial. Modules mostly occur once. The good thing is, if we implemented our atoms and molecules correctly them we are almost done with our job.
+In **Atomic CSS Architecture** a module is a independent layout compostion of molecules joined together to form portable interface units. Portability, code reuse and code impact are at this stage crucial. Modules mostly occur once. The good thing is, if we implemented our atoms and molecules correctly them we are almost done with our job.
 
 > Take good care of your atoms and molecules and your modules will take care of themselves.
 
@@ -255,7 +255,7 @@ Each module should be designed to exist as a standalone element, that can be mov
 </section>
 ```
 
-Modules are tagged with the prefix ".l-" and the prefix stands for layout. The module prefix is inherited by our parent HTML element and is a standalone element, speak an element with no other classes or properties (with the eception of javascript classes). The idea is that your module can be exported per copy/paste, can be deleted, replaced without causing any side effects. Modules are specific and can be thrown away at any time.
+Modules are tagged with the prefix ".l-" and the prefix stands for layout. The module prefix is inherited by our parent HTML element and is a standalone element, speak an element with no other classes or properties (with the exception of javascript classes). The idea is that your module can be exported per copy/paste, can be deleted, replaced without causing any side effects. Modules are specific and can be thrown away at any time.
 
 If you work with less/sass you probably create mixins for grid systems. Grid mixins should be implemeneted on modules on the wrapper element. It´s important to mention that media queries are controlled over the module element too. Atoms or molecules diversifications given by changes on the viewport size or different devices should be implemented at a modular level. Device and viewport changes are strictly layout related, if we decide we don´t need a module any more we can delete it without affecting our existing atoms and molecules environment.
 
